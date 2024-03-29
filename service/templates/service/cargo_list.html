@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<p class="link-read-post"><a href="{% url 'car_list' %}">Список машин</a></p>
+	<p class="link-read-post"><a href="{% url 'cargo_create' %}">Создать новый груз</a></p>
+<ul class="list-articles">
+	<h2>Список всех машин</h2>
+	{% for c in cargo %}
+		<li>
+			<h3>Груз № {{c.pk}}</h3>
+			<p>Локация отправителя: {{c.pick_up.city}}, {{c.pick_up.state_name}}</p>
+			<p>Локация получателя: {{c.delivery.city}}, {{c.delivery.state_name}}</p>
+			<p>Количество ближайших машин до груза (менее 450 миль): {{c.get_count_cars}}</p>
+			{% if cargo %}
+				<div class="clear"></div>
+				<p class="tags-list"><a href="{{ c.get_absolute_url }}">Информация о грузе</a></p>
+			{% else %}
+				<p>Грузов нет</p>
+			{% endif %}
+		</li>
+	{% endfor %}
+</ul>
+{% endblock %}

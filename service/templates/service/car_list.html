@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<p class="link-read-post"><a href="{% url 'cargo_list' %}">Список грузов</a></p>
+	<p class="link-read-post"><a href="{% url 'car_create' %}">Создать новую машину</a></p>
+	<ul class="list-articles">
+	<h2>Список всех машин</h2>
+	{% for car in cars %}
+		<li>
+			<h3>Машина № {{car.pk}}</h3>
+			<p>Текущая локация: {{car.current_location.city}}, {{car.current_location.state_name}}</p>
+			{% if car %}
+				<div class="clear"></div>
+				<p class="tags-list"><a href="{{ car.get_absolute_url }}">Информация о машине</a></p>
+			{% else %}
+				<p>Машин нет</p>
+			{% endif %}
+		</li>
+	{% endfor %}
+	</ul>
+{% endblock %}

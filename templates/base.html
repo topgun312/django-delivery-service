@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Сервис поиска ближайших машин для перевозки грузов</title>
+	<link type="text/css" href="{% static 'service/css/styles.css' %}" rel="stylesheet" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="shortcut icon" href="{% static 'service/images/logo.jpg' %}" type="image/x-icon"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<table class="table-page" border=0 cellpadding="0" cellspacing="0">
+<tr><td valign=top>
+{% block mainmenu %}
+		<div class="header">
+			<ul id="mainmenu" class="mainmenu">
+				<li><img src="{% static 'service/images/logo.jpg' %}" width="60" height="60" ></li>
+				<p class="last">Сервис поиска ближайших машин для перевозки грузов</p>
+			</ul>
+			<div class="clear"></div>
+		</div>
+{% endblock mainmenu %}
+
+<div class="content-text">
+{% block content %}
+{% endblock %}
+</div>
+
+<tr><td valign=top>
+	<div id="footer">
+		<p>&copy; 2024 Частичное или полное копирование информации с данного сайта для распространения на других ресурсах, в том числе и бумажных, строго запрещено.</p>
+	</div>
+</td></tr></table>
+</body>
+</html>

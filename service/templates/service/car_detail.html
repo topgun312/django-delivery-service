@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<ul class="tags-list">
+  <li><a href="{% url 'car_update' car.pk %}">Редактировать</a></li>
+  <li><a href="{% url 'car_delete' car.pk %}">Удалить</a></li>
+</ul>
+<h2>Информация о машине</h2>
+<h3>Машина №{{ car.pk }}</h3>
+<p>Номер машины: {{car.number}}</p>
+<p>Текущая локация: {{car.current_location.city}}, {{car.current_location.state_name}}</p>
+<p>Грузоподъемность: {{car.load_capacity}}</p>
+{% endblock %}
